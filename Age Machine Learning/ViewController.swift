@@ -19,9 +19,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
-        imageView.layer.cornerRadius = 150
-        imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2
+        imageView.clipsToBounds = true
         roundendBtn.layer.cornerRadius = roundendBtn.frame.height / 2
         roundendBtn.backgroundColor = UIColor.white
         roundendBtn.layer.borderWidth = 1.0
