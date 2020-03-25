@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var roundendBtn: UIButton!
+    @IBOutlet weak var labelAge: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+     
+        imageView.layer.cornerRadius = 150
+        imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        roundendBtn.layer.cornerRadius = roundendBtn.frame.height / 2
+        roundendBtn.backgroundColor = UIColor.white
+        roundendBtn.layer.borderWidth = 1.0
+        roundendBtn.layer.borderColor = UIColor.gray.cgColor
+        
+
         // Do any additional setup after loading the view.
         
 
@@ -45,9 +59,43 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
         // Set photoImageView to display the selected image.
         imageView.image = selectedImage
+        guard let ciImage = CIImage(image: selectedImage) else {
+            fatalError("couldn't convert UIImage to CIImage")
+        }
+        detectAge(image: ciImage)
 
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+ func detectAge(image: CIImage) {
+             labelAge.text = "Detecting age..."
+             // Load the ML model through its generated class
+             guard let model = try? VNCoreMLModel(for: AgeNet().model) else {
+                  fatalError("can't load AgeNet model")
+             }
+             // Create request for Vision Core ML model created
+             let request = VNCoreMLRequest(model: model) { [weak self] request, error in
+                 guard let results = request.results as? [VNClassificationObservation], let topResult = results.first else {
+                       fatalError("unexpected result type from VNCoreMLRequest")
+                 }
+
+                 // Update UI on main queue
+                 DispatchQueue.main.async { [weak self] in
+                       self?.labelAge.text = "I think your age is \(topResult.identifier) years!"
+                 }
+            }
+
+            // Run the Core ML AgeNet classifier on global dispatch queue
+            let handler = VNImageRequestHandler(ciImage: image)
+                  DispatchQueue.global(qos: .userInteractive).async {
+                  do {
+                      try handler.perform([request])
+                  } catch {
+                      print(error)
+                  }
+            }
     }
 }
 
