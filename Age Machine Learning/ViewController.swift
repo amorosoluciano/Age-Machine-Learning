@@ -16,6 +16,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var roundendBtn: UIButton!
     @IBOutlet weak var labelAge: UILabel!
+    @IBOutlet weak var labelGender: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,13 +59,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-
+        
         // Set photoImageView to display the selected image.
         imageView.image = selectedImage
+//        selectedImage = resizeImage(image: selectedImage, newWidth: 200)
+
         guard let ciImage = CIImage(image: selectedImage) else {
             fatalError("couldn't convert UIImage to CIImage")
         }
+        
         detectAge(image: ciImage)
+        detectGender(image: ciImage)
 
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
@@ -99,6 +104,49 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                   }
             }
     }
+    
+    func detectGender(image: CIImage) {
+                labelGender.text = "Detecting gender..."
+                // Load the ML model through its generated class
+                guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
+                     fatalError("can't load GenderNet model")
+                }
+                // Create request for Vision Core ML model created
+                let request = VNCoreMLRequest(model: model) { [weak self] request, error in
+                    guard let results = request.results as? [VNClassificationObservation], let topResult = results.first else {
+                          fatalError("unexpected result type from VNCoreMLRequest")
+                    }
+
+                    // Update UI on main queue
+                    DispatchQueue.main.async { [weak self] in
+                          self?.labelGender.text = "I think your gender is \(topResult.identifier) years!"
+                    }
+               }
+
+               // Run the Core ML AgeNet classifier on global dispatch queue
+               let handler = VNImageRequestHandler(ciImage: image)
+                     DispatchQueue.global(qos: .userInteractive).async {
+                     do {
+                         try handler.perform([request])
+                     } catch {
+                         print(error)
+                     }
+               }
+       }
+    
+     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x:0, y:0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
+    }
+
+
 }
 
 

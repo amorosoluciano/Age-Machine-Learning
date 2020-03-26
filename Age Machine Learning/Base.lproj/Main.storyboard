@@ -39,6 +39,13 @@
                                     <action selector="cameraTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXI-8t-pXJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-f4-bBJ">
+                                <rect key="frame" x="20" y="449" width="336" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -47,6 +54,7 @@
                         <outlet property="cameraBtn" destination="7PP-l0-iKF" id="zsg-gX-947"/>
                         <outlet property="imageView" destination="xuo-GB-bTT" id="gbi-pW-5j0"/>
                         <outlet property="labelAge" destination="qfF-7x-yP8" id="ZUn-M8-un9"/>
+                        <outlet property="labelGender" destination="CM5-f4-bBJ" id="wFj-Qr-c7m"/>
                         <outlet property="roundendBtn" destination="mCB-Y5-mcA" id="glA-gY-Ywc"/>
                     </connections>
                 </viewController>

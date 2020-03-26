@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF548A9D242BB3F500161E11 /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF548A9C242BB3F400161E11 /* AgeNet.mlmodel */; };
+		AF5D210D242CEAEC00C0E7BF /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */; };
+		AF5D210F242CEDA000C0E7BF /* GenderNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */; };
 		AF8BCEB9242A47F300C0CA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BCEB8242A47F300C0CA70 /* AppDelegate.swift */; };
 		AF8BCEBB242A47F300C0CA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BCEBA242A47F300C0CA70 /* SceneDelegate.swift */; };
 		AF8BCEBD242A47F300C0CA70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BCEBC242A47F300C0CA70 /* ViewController.swift */; };
@@ -37,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AF548A9C242BB3F400161E11 /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = AgeNet.mlmodel; path = ../../../../Downloads/AgeNet.mlmodel; sourceTree = "<group>"; };
+		AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = "<group>"; };
+		AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderNet.mlmodel; sourceTree = "<group>"; };
 		AF8BCEB5242A47F300C0CA70 /* Age Machine Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Age Machine Learning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8BCEB8242A47F300C0CA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF8BCEBA242A47F300C0CA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +107,12 @@
 			children = (
 				AF8BCEB8242A47F300C0CA70 /* AppDelegate.swift */,
 				AF8BCEBA242A47F300C0CA70 /* SceneDelegate.swift */,
-				AF548A9C242BB3F400161E11 /* AgeNet.mlmodel */,
 				AF8BCEBC242A47F300C0CA70 /* ViewController.swift */,
 				AF8BCEBE242A47F300C0CA70 /* Main.storyboard */,
 				AF8BCEC4242A47F400C0CA70 /* Assets.xcassets */,
 				AF8BCEC6242A47F400C0CA70 /* LaunchScreen.storyboard */,
+				AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */,
+				AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */,
 				AF8BCEC9242A47F400C0CA70 /* Info.plist */,
 				AF8BCEC1242A47F300C0CA70 /* Age_Machine_Learning.xcdatamodeld */,
 			);
@@ -266,8 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF8BCEBD242A47F300C0CA70 /* ViewController.swift in Sources */,
-				AF548A9D242BB3F500161E11 /* AgeNet.mlmodel in Sources */,
+				AF5D210D242CEAEC00C0E7BF /* AgeNet.mlmodel in Sources */,
 				AF8BCEB9242A47F300C0CA70 /* AppDelegate.swift in Sources */,
+				AF5D210F242CEDA000C0E7BF /* GenderNet.mlmodel in Sources */,
 				AF8BCEBB242A47F300C0CA70 /* SceneDelegate.swift in Sources */,
 				AF8BCEC3242A47F300C0CA70 /* Age_Machine_Learning.xcdatamodeld in Sources */,
 			);
