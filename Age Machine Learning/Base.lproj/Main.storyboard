@@ -30,15 +30,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PP-l0-iKF">
-                                <rect key="frame" x="186" y="248" width="42" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="camera" catalog="system"/>
-                                <connections>
-                                    <action selector="cameraTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXI-8t-pXJ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM5-f4-bBJ">
                                 <rect key="frame" x="20" y="449" width="336" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,12 +37,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2P-d7-Cf7">
+                                <rect key="frame" x="297" y="279" width="24" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="photo" catalog="system"/>
+                                <connections>
+                                    <action selector="galleryTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rhP-4j-nFu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PP-l0-iKF">
+                                <rect key="frame" x="93" y="279" width="42" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="camera" catalog="system"/>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KXI-8t-pXJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cameraBtn" destination="7PP-l0-iKF" id="zsg-gX-947"/>
+                        <outlet property="galleryBtn" destination="c2P-d7-Cf7" id="jvA-ox-lth"/>
                         <outlet property="imageView" destination="xuo-GB-bTT" id="gbi-pW-5j0"/>
                         <outlet property="labelAge" destination="qfF-7x-yP8" id="ZUn-M8-un9"/>
                         <outlet property="labelGender" destination="CM5-f4-bBJ" id="wFj-Qr-c7m"/>
@@ -65,6 +74,7 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="64" height="48"/>
+        <image name="photo" catalog="system" width="64" height="46"/>
         <image name="sample" width="852" height="594"/>
     </resources>
 </document>

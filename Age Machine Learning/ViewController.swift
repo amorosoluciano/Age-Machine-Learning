@@ -12,6 +12,7 @@ import Vision
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var galleryBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var roundendBtn: UIButton!
@@ -51,7 +52,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
           picker.cameraCaptureMode = .photo
           present(picker, animated: true, completion: nil)
   }
-
+    @IBAction func galleryTapped(_ sender: Any) {
+            guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+                 let alert = UIAlertController(title: "No photo library", message: "Problem with photo library!", preferredStyle: .alert)
+                 let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                 alert.addAction(ok)
+                 self.present(alert, animated: true, completion: nil)
+                 return
+        }
+            
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .photoLibrary
+            present(picker, animated: true, completion: nil)
+    }
+    
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
@@ -74,7 +90,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-    
     
  func detectAge(image: CIImage) {
              labelAge.text = "Detecting age..."
@@ -108,7 +123,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func detectGender(image: CIImage) {
                 labelGender.text = "Detecting gender..."
                 // Load the ML model through its generated class
-                guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
+        guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
                      fatalError("can't load GenderNet model")
                 }
                 // Create request for Vision Core ML model created
