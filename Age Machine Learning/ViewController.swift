@@ -72,13 +72,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 
         // The info dictionary may contain multiple representations of the image. You want to use the original.
-        guard let selectedImage = info[.originalImage] as? UIImage else {
+        guard var selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
         // Set photoImageView to display the selected image.
         imageView.image = selectedImage
-//        selectedImage = resizeImage(image: selectedImage, newWidth: 200)
+        selectedImage = resizeImage(image: selectedImage, newWidth: 140)
 
         guard let ciImage = CIImage(image: selectedImage) else {
             fatalError("couldn't convert UIImage to CIImage")
@@ -123,7 +123,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func detectGender(image: CIImage) {
                 labelGender.text = "Detecting gender..."
                 // Load the ML model through its generated class
-        guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
+                guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
                      fatalError("can't load GenderNet model")
                 }
                 // Create request for Vision Core ML model created
