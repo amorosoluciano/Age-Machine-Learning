@@ -15,6 +15,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var galleryBtn: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var roundendBtn2: UIButton!
     @IBOutlet weak var roundendBtn: UIButton!
     @IBOutlet weak var labelAge: UILabel!
     @IBOutlet weak var labelGender: UILabel!
@@ -23,14 +24,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
         imageView.layer.borderWidth = 1.0
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderColor = UIColor.gray.cgColor
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.clipsToBounds = true
         roundendBtn.layer.cornerRadius = roundendBtn.frame.height / 2
         roundendBtn.backgroundColor = UIColor.white
         roundendBtn.layer.borderWidth = 1.0
         roundendBtn.layer.borderColor = UIColor.gray.cgColor
-        
+        roundendBtn2.layer.cornerRadius = roundendBtn2.frame.height / 2
+        roundendBtn2.backgroundColor = UIColor.white
+        roundendBtn2.layer.borderWidth = 1.0
+        roundendBtn2.layer.borderColor = UIColor.gray.cgColor
 
         // Do any additional setup after loading the view.
         
@@ -78,7 +82,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         // Set photoImageView to display the selected image.
         imageView.image = selectedImage
-        selectedImage = resizeImage(image: selectedImage, newWidth: 140)
+        selectedImage = resizeImage(image: selectedImage, newWidth: 125)
+//        I try also to set width to 120, it's a little inaccurate but always worked
 
         guard let ciImage = CIImage(image: selectedImage) else {
             fatalError("couldn't convert UIImage to CIImage")
@@ -105,7 +110,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
                  // Update UI on main queue
                  DispatchQueue.main.async { [weak self] in
-                       self?.labelAge.text = "I think your age is \(topResult.identifier) years!"
+                    self?.labelAge.text = "I think your age is \(topResult.identifier) years!                                   (\(Int(topResult.confidence * 100))% of confidence)"
                  }
             }
 
