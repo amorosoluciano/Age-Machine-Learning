@@ -128,7 +128,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func detectGender(image: CIImage) {
                 labelGender.text = "Detecting gender..."
                 // Load the ML model through its generated class
-                guard let model = try? VNCoreMLModel(for: GenderNet().model) else {
+                guard let model = try? VNCoreMLModel(for: GenderClass_1().model) else {
                      fatalError("can't load GenderNet model")
                 }
                 // Create request for Vision Core ML model created

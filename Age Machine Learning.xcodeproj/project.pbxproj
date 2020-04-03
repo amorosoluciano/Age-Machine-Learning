@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AF5D210D242CEAEC00C0E7BF /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */; };
-		AF5D210F242CEDA000C0E7BF /* GenderNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */; };
 		AF876D022434CEE80013B34C /* GenderClass 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = AF876D012434CEE80013B34C /* GenderClass 1.mlmodel */; };
 		AF8BCEB9242A47F300C0CA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BCEB8242A47F300C0CA70 /* AppDelegate.swift */; };
 		AF8BCEBB242A47F300C0CA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8BCEBA242A47F300C0CA70 /* SceneDelegate.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = "<group>"; };
-		AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GenderNet.mlmodel; sourceTree = "<group>"; };
 		AF876D012434CEE80013B34C /* GenderClass 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "GenderClass 1.mlmodel"; sourceTree = "<group>"; };
 		AF8BCEB5242A47F300C0CA70 /* Age Machine Learning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Age Machine Learning.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8BCEB8242A47F300C0CA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 				AF8BCEC4242A47F400C0CA70 /* Assets.xcassets */,
 				AF8BCEC6242A47F400C0CA70 /* LaunchScreen.storyboard */,
 				AF5D210C242CEAEC00C0E7BF /* AgeNet.mlmodel */,
-				AF5D210E242CEDA000C0E7BF /* GenderNet.mlmodel */,
 				AF876D012434CEE80013B34C /* GenderClass 1.mlmodel */,
 				AF8BCEC9242A47F400C0CA70 /* Info.plist */,
 				AF8BCEC1242A47F300C0CA70 /* Age_Machine_Learning.xcdatamodeld */,
@@ -275,7 +272,6 @@
 				AF876D022434CEE80013B34C /* GenderClass 1.mlmodel in Sources */,
 				AF5D210D242CEAEC00C0E7BF /* AgeNet.mlmodel in Sources */,
 				AF8BCEB9242A47F300C0CA70 /* AppDelegate.swift in Sources */,
-				AF5D210F242CEDA000C0E7BF /* GenderNet.mlmodel in Sources */,
 				AF8BCEBB242A47F300C0CA70 /* SceneDelegate.swift in Sources */,
 				AF8BCEC3242A47F300C0CA70 /* Age_Machine_Learning.xcdatamodeld in Sources */,
 			);
